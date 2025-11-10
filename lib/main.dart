@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:kick_stack/menu.dart';
+import 'package:kick_stack/screens/menu.dart';
 
 void main() {
   runApp(const MyApp());
@@ -31,7 +31,7 @@ class MyApp extends StatelessWidget {
         // tested with just a hot reload.
         colorScheme: ColorScheme.fromSwatch(
           primarySwatch: Colors.blue,
-        ).copyWith(secondary: Colors.blueAccent[400]),
+        ).copyWith(secondary: Colors.blueAccent),
       ),
       home: MyHomePage(),
     );

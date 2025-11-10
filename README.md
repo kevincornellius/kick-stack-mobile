@@ -1,6 +1,64 @@
 ## Tugas Individu
 ### Kevin Cornellius Widjaja - NPM: 2406428781 - Kelas: PBP E 
 
+
+<details><summary>Tugas 8: Flutter Navigation, Layouts, Forms, and Input Elements</summary>
+
+## **Q1**: Jelaskan perbedaan antara `Navigator.push()` dan `Navigator.pushReplacement()` pada Flutter. Dalam kasus apa sebaiknya masing-masing digunakan pada aplikasi Football Shop kamu?
+
+**A:** `Navigator.push()` adalah metode yang digunakan untuk menambahkan halaman baru ke tumpukan navigasi (navigation stack) tanpa menghapus halaman sebelumnya. Ini memungkinkan pengguna untuk kembali ke halaman sebelumnya dengan menekan tombol kembali. Sebaliknya, `Navigator.pushReplacement()` menggantikan halaman saat ini dengan halaman baru, sehingga halaman sebelumnya dihapus dari tumpukan navigasi. Pengguna tidak dapat kembali ke halaman sebelumnya setelah menggunakan `pushReplacement()`. Dalam aplikasi saya, saya menggunakan `Navigator.push()` ketika pengguna menavigasi ke halaman formulir tambah produk baru agar mereka dapat kembali ke halaman utama setelah menyelesaikan formulir. Sedangkan `Navigator.pushReplacement()` dapat digunakan ketika pengguna menyelesaikan proses tertentu, seperti logout, di mana tidak perlu kembali ke halaman sebelumnya.
+
+---
+
+## **Q2:** Bagaimana kamu memanfaatkan hierarchy widget seperti Scaffold, AppBar, dan Drawer untuk membangun struktur halaman yang konsisten di seluruh aplikasi?
+
+**A:** Saya memanfaatkan hierarchy widget seperti `Scaffold`, `AppBar`, dan `Drawer` untuk menciptakan struktur halaman yang konsisten di seluruh aplikasi dengan cara berikut:
+- `Scaffold`: Saya menggunakan widget `Scaffold` sebagai kerangka dasar untuk setiap halaman dalam aplikasi. `Scaffold` menyediakan struktur standar yang mencakup area untuk `AppBar`, `Drawer`, dan konten utama halaman. Dengan menggunakan `Scaffold`, saya memastikan bahwa setiap halaman memiliki tata letak yang seragam dan mudah dinavigasi.
+- `AppBar`: Saya menambahkan widget `AppBar` di bagian atas setiap halaman untuk menampilkan judul halaman dan menyediakan akses cepat, seperti tombol menu. 
+- `Drawer`: Saya menggunakan widget `Drawer` untuk menyediakan navigasi samping yang konsisten di seluruh aplikasi. Drawer ini berisi opsi navigasi seperti Halaman Utama dan Tambah Produk, sehingga pengguna dapat dengan mudah berpindah antar halaman tanpa kehilangan konteks aplikasi.
+  
+---
+
+## **Q3:** Dalam konteks desain antarmuka, apa kelebihan menggunakan layout widget seperti Padding, SingleChildScrollView, dan ListView saat menampilkan elemen-elemen form? Berikan contoh penggunaannya dari aplikasi kamu.
+
+**A:** Dalam konteks desain antarmuka, penggunaan layout widget seperti `Padding`, `SingleChildScrollView`, dan `ListView` memiliki beberapa kelebihan saat menampilkan elemen-elemen form:
+- `Padding`: Widget ini memungkinkan saya untuk menambahkan ruang di sekitar elemen form, sehingga tampilan menjadi lebih rapi dan mudah dibaca. Contohnya, saya menggunakan `Padding` di sekitar setiap elemen input (nama produk, harga, deskripsi, kategori, thumbnail, dan switch unggulan) pada formulir tambah produk untuk memberikan jarak yang cukup antara elemen-elemen tersebut.
+- `SingleChildScrollView`: Widget ini memungkinkan konten form untuk di-scroll jika melebihi batas layar. Ini sangat berguna untuk formulir yang panjang, sehingga pengguna dapat mengakses semua elemen input tanpa masalah. Dalam aplikasi saya, saya membungkus seluruh `Column` yang berisi elemen-elemen form dengan `SingleChildScrollView` pada halaman `ProductFormPage` agar pengguna dapat melakukan scroll ke bawah untuk melihat semua bidang input.
+- `ListView`: Widget ini berguna untuk menampilkan daftar item yang dapat di-scroll dengan performa yang baik. Dalam aplikasi saya, `ListView` digunakan di dalam `Drawer` untuk menampilkan menu navigasi seperti "Halaman Utama" dan "Tambah Produk" secara vertikal.
+
+---
+
+## **Q4:** Bagaimana kamu menyesuaikan warna tema agar aplikasi Football Shop memiliki identitas visual yang konsisten dengan brand toko?
+
+**A:** Saya menggunakan skema warna biru sebagai warna utama untuk konsistensi visual aplikasi KickStack:
+- **Theme Global**: Di `main.dart`, saya set `primarySwatch: Colors.blue` yang otomatis digunakan oleh semua komponen.
+- **AppBar dan Drawer**: Menggunakan `Theme.of(context).colorScheme.primary` agar konsisten dengan tema global.
+- **Tombol Save**: Menggunakan `Theme.of(context).colorScheme.secondary` untuk memberikan penekanan visual.
+
+---
+Checklist untuk tugas ini adalah sebagai berikut:
+- [X] Membuat minimal satu halaman baru pada aplikasi, yaitu halaman formulir tambah produk baru dengan ketentuan sebagai berikut:
+  - [X] Memakai minimal tiga elemen input, yaitu name, price, dan description.
+  - [X] Tambahkan elemen input lain sesuai dengan model pada aplikasi Football Shop Django yang telah kamu buat (misalnya thumbnail, category, dan isFeatured).
+- [X] Memiliki sebuah tombol Save.
+- [X] Setiap elemen input di formulir juga harus divalidasi dengan ketentuan sebagai berikut:
+  - [X] Setiap elemen input tidak boleh kosong.
+  - [X] Setiap elemen input harus berisi data dengan tipe data atribut modelnya.
+- [X] Mengarahkan pengguna ke halaman form tambah produk baru ketika menekan tombol Tambah Produk pada halaman utama.
+- [X] Memunculkan data sesuai isi dari formulir yang diisi dalam sebuah pop-up setelah menekan tombol Save pada halaman form tambah produk baru.
+- [X] Membuat sebuah drawer pada aplikasi dengan ketentuan sebagai berikut:
+  - [X] Drawer minimal memiliki dua buah opsi, yaitu Halaman Utama dan Tambah Produk.
+  - [X] Ketika memilih opsi Halaman Utama, aplikasi akan mengarahkan pengguna ke halaman utama.
+  - [X] Ketika memilih opsi Tambah Produk, aplikasi akan mengarahkan pengguna ke halaman form tambah produk baru.
+- [X] Menjawab beberapa pertanyaan berikut pada README.md pada root folder (silakan modifikasi README.md yang telah kamu buat sebelumnya dan tambahkan subjudul untuk setiap tugas):
+  - [X] Jelaskan perbedaan antara `Navigator.push()` dan `Navigator.pushReplacement()` pada Flutter. Dalam kasus apa sebaiknya masing-masing digunakan pada aplikasi Football Shop kamu?
+  - [X] Bagaimana kamu memanfaatkan hierarchy widget seperti Scaffold, AppBar, dan Drawer untuk membangun struktur halaman yang konsisten di seluruh aplikasi?
+  - [X] Dalam konteks desain antarmuka, apa kelebihan menggunakan layout widget seperti Padding, SingleChildScrollView, dan ListView saat menampilkan elemen-elemen form? Berikan contoh penggunaannya dari aplikasi kamu.
+  - [X] Bagaimana kamu menyesuaikan warna tema agar aplikasi Football Shop memiliki identitas visual yang konsisten dengan brand toko?
+- [X] Melakukan add, commit, dan push ke GitHub.
+
+</details>
+
 <details><summary>Tugas 7: Elemen Dasar Flutter</summary>
 
 
