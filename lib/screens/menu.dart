@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:kick_stack/screens/product_entry_list.dart';
+import 'package:kick_stack/widgets/item_card.dart';
 import 'package:kick_stack/widgets/left_drawer.dart';
 import 'package:kick_stack/screens/addproduct_form.dart';
 
@@ -6,9 +8,13 @@ class MyHomePage extends StatelessWidget {
   MyHomePage({super.key});
 
   final List<ItemHomepage> items = [
-    ItemHomepage("All Products", Icons.local_mall, Colors.blue),
-    ItemHomepage("My Products", Icons.my_library_books, Colors.green),
-    ItemHomepage("Create Product", Icons.add, Colors.red),
+    ItemHomepage("All Products", Icons.local_mall, const Color(0xFF0066FF)),
+    ItemHomepage(
+      "My Products",
+      Icons.my_library_books,
+      const Color(0xFF0066FF),
+    ),
+    ItemHomepage("Create Product", Icons.add, const Color(0xFF0066FF)),
   ];
 
   final String nama = "Kevin Cornellius Widjaja"; //nama
@@ -27,7 +33,7 @@ class MyHomePage extends StatelessWidget {
         ),
 
         // Warna latar belakang AppBar diambil dari skema warna tema aplikasi.
-        backgroundColor: Theme.of(context).colorScheme.primary,
+        backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
       ),
       drawer: LeftDrawer(),
       // Body halaman dengan padding di sekelilingnya.
@@ -130,63 +136,4 @@ class ItemHomepage {
   final Color color;
 
   ItemHomepage(this.name, this.icon, this.color);
-}
-
-class ItemCard extends StatelessWidget {
-  // Menampilkan kartu dengan ikon dan nama.
-
-  final ItemHomepage item;
-
-  const ItemCard(this.item, {super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Material(
-      // Menentukan warna latar belakang dari argument color.
-      color: item.color,
-      // Membuat sudut kartu melengkung.
-      borderRadius: BorderRadius.circular(12),
-
-      child: InkWell(
-        // Aksi ketika kartu ditekan.
-        onTap: () {
-          // Menampilkan pesan SnackBar saat kartu ditekan.
-          ScaffoldMessenger.of(context)
-            ..hideCurrentSnackBar()
-            ..showSnackBar(
-              SnackBar(
-                content: Text("Kamu telah menekan tombol ${item.name}!"),
-              ),
-            );
-
-          // Navigasi ke halaman ProductFormPage jika tombol Create Product ditekan
-          if (item.name == "Create Product") {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => const ProductFormPage()),
-            );
-          }
-        },
-        // Container untuk menyimpan Icon dan Text
-        child: Container(
-          padding: const EdgeInsets.all(8),
-          child: Center(
-            child: Column(
-              // Menyusun ikon dan teks di tengah kartu.
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Icon(item.icon, color: Colors.white, size: 30.0),
-                const Padding(padding: EdgeInsets.all(3)),
-                Text(
-                  item.name,
-                  textAlign: TextAlign.center,
-                  style: const TextStyle(color: Colors.white),
-                ),
-              ],
-            ),
-          ),
-        ),
-      ),
-    );
-  }
 }

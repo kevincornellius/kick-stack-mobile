@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:kick_stack/screens/menu.dart';
 import 'package:kick_stack/screens/addproduct_form.dart';
+import 'package:kick_stack/screens/product_entry_list.dart';
 
 class LeftDrawer extends StatelessWidget {
   const LeftDrawer({super.key});
@@ -12,7 +13,7 @@ class LeftDrawer extends StatelessWidget {
         children: [
           DrawerHeader(
             decoration: BoxDecoration(
-              color: Theme.of(context).colorScheme.primary,
+              color: Theme.of(context).appBarTheme.backgroundColor,
             ),
             child: Column(
               children: [
@@ -55,6 +56,19 @@ class LeftDrawer extends StatelessWidget {
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => ProductFormPage()),
+              );
+            },
+          ),
+          ListTile(
+            leading: const Icon(Icons.add_reaction_rounded),
+            title: const Text('Product List'),
+            onTap: () {
+              // Route to product list page
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const ProductEntryListPage(),
+                ),
               );
             },
           ),

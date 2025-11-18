@@ -1,6 +1,39 @@
 ## Tugas Individu
 ### Kevin Cornellius Widjaja - NPM: 2406428781 - Kelas: PBP E 
 
+<details><summary>Tugas 9: Flutter State Management and API Integration</summary>
+
+
+
+---
+Checklist Tugas:
+- [ ] Memastikan deployment proyek Django sudah berjalan dengan baik 
+- [ ] Mengimplementasikan fitur registrasi akun pada proyek Flutter 
+- [ ] Membuat halaman login pada proyek Flutter 
+- [ ] Mengintegrasikan sistem autentikasi Django dengan proyek Flutter 
+- [ ] Membuat model kustom sesuai dengan proyek aplikasi Django 
+- [ ] Membuat halaman daftar item (mengambil dari endpoint JSON Django) 
+
+- [ ] Menampilkan untuk tiap item: `name`, `price`, `description`, `thumbnail`, `category`, `is_featured` (atau field lain sesuai model) 
+- [ ] Membuat halaman detail untuk setiap item 
+
+- [ ] Halaman dapat diakses dengan menekan salah satu card pada halaman daftar 
+- [ ] Menampilkan seluruh atribut model item pada halaman detail 
+- [ ] Menambahkan tombol untuk kembali ke halaman daftar item 
+- [ ] Menambahkan filter pada halaman daftar item: hanya tampilkan item yang terasosiasi dengan pengguna yang login 
+- [ ] Menjawab pertanyaan-pertanyaan berikut di `README.md` (tambahkan subjudul untuk tiap pertanyaan) 
+- [ ] Mengapa perlu membuat model Dart saat mengambil/mengirim data JSON? (konsekuensi jika langsung memetakan `Map<String, dynamic>`: validasi tipe, null-safety, maintainability) 
+- [ ] Apa fungsi package `http` dan `CookieRequest` dalam tugas ini? Jelaskan perbedaan peran `http` vs `CookieRequest` 
+- [ ] Mengapa instance `CookieRequest` perlu dibagikan ke semua komponen di aplikasi Flutter? 
+- [ ] Jelaskan konfigurasi konektivitas agar Flutter dapat berkomunikasi dengan Django (mengapa menambahkan `10.0.2.2` pada `ALLOWED_HOSTS`, mengaktifkan CORS, pengaturan `SameSite`/cookie, dan menambahkan izin akses internet di Android). Apa yang terjadi jika konfigurasi tidak benar? 
+- [ ] Jelaskan mekanisme pengiriman data mulai dari input hingga tampil di Flutter 
+- [ ] Jelaskan mekanisme autentikasi: login, register, logout (alur dari Flutter → Django → response → tampilan menu) 
+- [ ] Jelaskan langkah-langkah bagaimana kamu mengimplementasikan checklist ini secara **step-by-step** (bukan sekadar mengikuti tutorial) 
+- [ ] Melakukan `add` → `commit` → `push` ke GitHub 
+
+---
+
+</details>
 
 <details><summary>Tugas 8: Flutter Navigation, Layouts, Forms, and Input Elements</summary>
 
